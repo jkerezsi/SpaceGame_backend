@@ -6,15 +6,15 @@ const userLogin = (req, res) => {
   service.postUser(username, password)
     .then(() => {
       res.json({
-        message: 'ok'
+        message: 'ok',
       });
     })
     .catch((err) => {
       res.json({
-        err
-      })
-    })
-}
+        err,
+      });
+    });
+};
 
 
 module.exports = { userLogin };
