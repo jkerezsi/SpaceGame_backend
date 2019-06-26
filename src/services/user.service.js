@@ -7,7 +7,7 @@ const postUser = (username, password) => new Promise((resolve, reject) => {
     if (err) {
       reject(err);
     } else {
-      resolve(data);
+      resolve(data._id);
     }
   });
 });
