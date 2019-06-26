@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const Kingdom = new Schema({
-  kingdomname: {
+  kingdomName: {
     type: String,
     required: true,
   },
