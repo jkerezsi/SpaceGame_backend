@@ -1,15 +1,15 @@
-const User = require('../models/try');
+const User = require('../models/register.model');
 
 const postUser = (username, password) => new Promise((resolve, reject) => {
-  const newUser = new User({username, password});
+  const newUser = new User({ username, password });
 
-  newUser.save((err)=>{
-    if (err){
-      reject(err)
+  newUser.save((err, data) => {
+    if (err) {
+      reject(err);
     } else {
-      resolve()
+      resolve(data);
     }
   });
-})
+});
 
-module.exports = {postUser}
+module.exports = { postUser };
