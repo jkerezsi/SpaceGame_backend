@@ -16,7 +16,7 @@ const userRegister = (req, res) => {
     .then(userId => createKingdomService.createKingdom(username, kingdomName, userId))
     .then((data) => { res.json(data); })
     .catch((err) => {
-      if (err.message === 'User validation failed: username: Username is already taken.') {
+      if (err.errors) {
         res.status(409).json(err.errors.username.message);
       } else {
         res.status(400).json(err.message);
