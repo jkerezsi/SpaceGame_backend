@@ -9,9 +9,9 @@ const userRegister = (req, res) => {
   const { username, password, kingdomName } = req.body;
 
   loginLengthCheckerService.passwordUsernameLengthChecker(username, password)
-    .then(() => isUsernameGivenService.usernameLengthChecker(username, password))
-    .then(() => isPasswordGivenService.passwordLengthChecker(username, password))
-    .then(() => passwordMinimumService.passwordMinimumChecker(username, password))
+    .then(() => isUsernameGivenService.usernameLengthChecker(username))
+    .then(() => isPasswordGivenService.passwordLengthChecker(password))
+    .then(() => passwordMinimumService.passwordMinimumChecker(password))
     .then(() => service.postUser(username, password))
     .then(userId => createKingdomService.createKingdom(username, kingdomName, userId))
     .then((data) => { res.json(data); })
