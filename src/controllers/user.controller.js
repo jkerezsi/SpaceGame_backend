@@ -13,8 +13,8 @@ const userRegister = (req, res) => {
     .then(() => isPasswordGivenService.passwordLengthChecker(password))
     .then(() => passwordMinimumService.passwordMinimumChecker(password))
     .then(() => service.postUser(username, password))
-    .then(userId => createKingdomService.createKingdom(username, kingdomName, userId))
-    .then((data) => { res.json(data); })
+    .then(userId => createKingdomService.createKingdom(userId._id, username, kingdomName))
+    .then((data) => { res.json({ userID: data.userId, username, kingdomID: data._id }); })
     .catch((err) => {
       if (err.errors) {
         res.status(409).json(err.errors.username.message);
