@@ -14,5 +14,5 @@ const loginSchema = new mongoose.Schema({
 const Login = mongoose.model('user', loginSchema);
 
 module.exports = {
-    Login,
+  Login,
 };

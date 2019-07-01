@@ -2,6 +2,7 @@ const PORT = 3000;
 
 const mongoose = require('mongoose');
 const express = require('express');
+
 const app = express();
 const cors = require('cors');
 
@@ -12,10 +13,11 @@ const router = require('./routes/index');
 
 app.use(router);
 
-mongoose.connect(`mongodb://localhost:27017/tribes`,{
-    useNewUrlParser: true,
-    useCreateIndex: true,
-  });
+mongoose.connect(`mongoose.connect(mongodb+srv://${process.env.DB_USERNAME}:
+  ${process.env.DB_PASSWORD}@cluster0-qmdil.mongodb.net/test?retryWrites=true`, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+});
 
 app.listen(PORT, () => {
   console.log(`Port is listening on ${PORT}`); // eslint-disable-line
