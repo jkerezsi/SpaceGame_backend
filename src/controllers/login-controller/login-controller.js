@@ -1,5 +1,5 @@
-const { checkFormFields } = require('../services/login-service');
-const { searchUsernameAndPassword } = require('../services/user-service');
+const { checkFormFields } = require('../../services/login-services/login-service');
+const { searchUsernameAndPassword } = require('../../services/login-services/user-service');
 
 const login = (req, res) => {
     checkFormFields(req.body.username, req.body.password)
