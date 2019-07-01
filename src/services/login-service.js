@@ -1,8 +1,7 @@
-const service = require('./user-service');
 
 const checkFormFields = (username, password) => new Promise((resolve, reject) => {
     if (username === '' && password === '') {
-        reject(new Error('All fields are required.'));
+        reject (new Error('All fields are required.'));
     } else if (username === '') {
         reject (new Error('Username is required.'));
     } else if (password === '') {

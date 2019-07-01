@@ -12,8 +12,7 @@ const router = require('./routes/index');
 
 app.use(router);
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0-qmdil.mongodb.net/test?retryWrites=true`,
-  {
+mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0-qmdil.mongodb.net/test?retryWrites=true`,{
     useNewUrlParser: true,
     useCreateIndex: true,
   });
