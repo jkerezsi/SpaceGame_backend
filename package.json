@@ -13,8 +13,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.0.0",
     "express": "^4.16.4",
-    "mongoose": "^5.4.4"
+    "mongoose": "^5.4.4",
+    "mongoose-unique-validator": "^2.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -27,7 +29,20 @@
     "eslint-plugin-react": "^7.9.1",
     "eslint-restricted-globals": "^0.1.1",
     "mocha": "^5.2.0",
+    "nodemon": "^1.19.1",
     "supertest": "^3.4.2",
     "tape": "^4.9.2"
-  }
+  },
+  "description": "## Steps",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/green-fox-academy/ferrilata-infinite-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/green-fox-academy/ferrilata-infinite-backend/issues"
+  },
+  "homepage": "https://github.com/green-fox-academy/ferrilata-infinite-backend#readme"
 }
