@@ -1,4 +1,4 @@
-const Kingdom = require('../models/kingdom.model');
+const Kingdom = require('../../models/kingdom.model');
 
 
 const requestResources = userIdp => new Promise((resolve, reject) => {

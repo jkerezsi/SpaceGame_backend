@@ -1,6 +1,5 @@
-const Kingdom = require('../models/kingdom.model');
-const Resources = require('../models/resources.model');
-
+const Kingdom = require('../../models/kingdom.model');
+const Resources = require('../../models/resources.model');
 
 const createKingdom = (userId, username, kingdomName) => new Promise((resolve, reject) => {
   if (kingdomName.length < 1) {
