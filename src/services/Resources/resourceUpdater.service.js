@@ -2,7 +2,7 @@ const Kingdom = require('../../models/kingdom.model');
 
 
 function newResourceAmount(newTimestamp, oldTimestamp, generation) {
-  const timeDifference = Math.floor(newTimestamp - oldTimestamp) / 60000;
+  const timeDifference = Math.floor((newTimestamp - oldTimestamp) / 60000);
   return timeDifference * generation;
 }
 

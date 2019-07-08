@@ -1,8 +1,8 @@
 const { requestResources } = require('../services/Resources/resource.service');
 const { decode } = require('../services/decoder.js');
 
-const getResoures = (req, res) => {
-  decode(req.body.token)
+const getResources = (req, res) => {
+  decode(req.headers.token)
     .then(userId => requestResources(userId))
     .then(data => res.status(200).json(data))
     .catch((err) => {
@@ -11,5 +11,5 @@ const getResoures = (req, res) => {
 };
 
 module.exports = {
-  getResoures,
+  getResources,
 };
