@@ -2,7 +2,7 @@ const express = require('express');
 const userController = require('../controllers/user.controller');
 const loginController = require('../controllers/login-controller/login-controller');
 const resourceController = require('../controllers/resource.controller');
-const resourceUpdaterController = require('../controllers/resourceUpdater.controller');
+// const resourceUpdaterController = require('../controllers/resourceUpdater.controller');
 
 
 const router = express.Router();
