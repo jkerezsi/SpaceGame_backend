@@ -1,9 +1,9 @@
-const service = require('../services/user.service');
-const loginLengthCheckerService = require('../services/lengths_checker.service');
-const isPasswordGivenService = require('../services/passwordlength_checker.service');
-const isUsernameGivenService = require('../services/usernamelength_checker.service');
-const passwordMinimumService = require('../services/password_minimum_length.service');
-const createKingdomService = require('../services/kingdom.service');
+const service = require('../services/register/user.service');
+const loginLengthCheckerService = require('../services/register/lengths_checker.service');
+const isPasswordGivenService = require('../services/register/passwordlength_checker.service');
+const isUsernameGivenService = require('../services/register/usernamelength_checker.service');
+const passwordMinimumService = require('../services/register/password_minimum_length.service');
+const createKingdomService = require('../services/register/kingdom.service');
 
 const userRegister = (req, res) => {
   const { username, password, kingdomName } = req.body;
