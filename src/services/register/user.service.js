@@ -1,4 +1,4 @@
-const User = require('../models/register.model');
+const User = require('../../models/register.model');
 
 const postUser = (username, password) => new Promise((resolve, reject) => {
   const newUser = new User({ username, password });
