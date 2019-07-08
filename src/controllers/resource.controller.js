@@ -1,3 +1,4 @@
+
 const { requestResources } = require('../services/Resources/resource.service');
 const { decode } = require('../services/decoder.js');
 
@@ -9,7 +10,6 @@ const getResources = (req, res) => {
       res.status(400).json(err);
     });
 };
-
 module.exports = {
   getResources,
 };

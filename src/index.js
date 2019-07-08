@@ -20,7 +20,6 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS
     useCreateIndex: true,
   });
 
-
 app.listen(PORT, () => {
   console.log(`Port is listening on ${PORT}`); // eslint-disable-line
 });
