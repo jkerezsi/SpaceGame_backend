@@ -10,6 +10,5 @@ const router = express.Router();
 router.post('/register', userController.userRegister);
 router.post('/login', loginController.login);
 router.get('/kingdom/resource', resourceController.getResoures);
-router.post('/test', resourceUpdaterController.resourceUpdate);
 
 module.exports = router;

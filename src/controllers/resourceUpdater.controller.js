@@ -5,8 +5,7 @@ const { resourcesUpdater } = require('../services/Resources/test');
 const resourceUpdate = (req, res) => {
   decode(req.body.token)
     .then(userId => requestResourcesWithKdId(userId))
-    .then(info => resourcesUpdater(info))
-    .then(data => res.status(200).json(data))
+    .then(kingdomInfo => resourcesUpdater(kingdomInfo))
     .catch((err) => {
       res.status(400).json(err);
     });
