@@ -5,11 +5,11 @@ const { checkUserId } = require('../../services/authorization-services/token-ser
 
 const authorize = (req, res) => {
   checkTokenPresence(req.body)
-  .then(() => decode(req.body.token))
-  .then(userId => checkUserId(userId))
-  .then(userId => requestKingdomId(userId))
-  .then(data => { res.json({ userId: data.userId, kingdomId: data._id }); })
-  .catch(err => res.json(err.message))
+    .then(() => decode(req.body.token))
+    .then(userId => checkUserId(userId))
+    .then(userId => requestKingdomId(userId))
+    .then((data) => { res.json({ userId: data.userId, kingdomId: data._id }); })
+    .catch(err => res.json(err.message));
 };
 
 module.exports = {
