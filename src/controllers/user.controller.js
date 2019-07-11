@@ -17,9 +17,9 @@ const userRegister = (req, res) => {
     .then((data) => { res.json({ userID: data.userId, username, kingdomID: data._id }); })
     .catch((err) => {
       if (err.errors) {
-        res.status(409).json(err.errors.username.message);
+        res.status(409).json({ status: 'error', message: err.errors.username.message });
       } else {
-        res.status(400).json(err.message);
+        res.status(400).json({ status: 'error', message: err.message });
       }
     });
 };
