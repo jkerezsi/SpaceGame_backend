@@ -3,7 +3,6 @@ const userController = require('../controllers/user.controller');
 const loginController = require('../controllers/login-controller/login-controller');
 const kingdomSettings = require('../controllers/settings-controller/settings-controller');
 const resourceController = require('../controllers/resource.controller');
-// const resourceUpdaterController = require('../controllers/resourceUpdater.controller');
 const getAllBuildingsController = require('../controllers/getAllBuildings.controller');
 
 
