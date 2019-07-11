@@ -13,6 +13,6 @@ router.post('/register', userController.userRegister);
 router.post('/login', loginController.login);
 router.get('/kingdom/resource', resourceController.getResources);
 router.put('/kingdom', kingdomSettings.kingdomNameUpdate);
-router.get('/kingdom/buildings',getAllBuildingsController.getAllBuildings);
+router.get('/kingdom/buildings', getAllBuildingsController.getAllBuildings);
 
 module.exports = router;
