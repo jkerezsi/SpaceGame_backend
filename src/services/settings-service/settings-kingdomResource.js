@@ -7,6 +7,7 @@ const requestAndUpdateSettingsResources = (newKingdomName, userIdp) => new Promi
       reject(err);
     } else {
       resolve(data);
+      console.log(data);
     }
   });
 });
