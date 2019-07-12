@@ -6,14 +6,15 @@ const passwordMinimumService = require('../services/register/password_minimum_le
 const createKingdomService = require('../services/register/kingdom.service');
 
 const userRegister = (req, res) => {
-  const { username, password, kingdomName } = req.body;
+  const { username, password } = req.body;
+  const kingdom = req.body.kingdom || `${username}'s kingdom`;
 
   loginLengthCheckerService.passwordUsernameLengthChecker(username, password)
     .then(() => isUsernameGivenService.usernameLengthChecker(username))
     .then(() => isPasswordGivenService.passwordLengthChecker(password))
     .then(() => passwordMinimumService.passwordMinimumChecker(password))
     .then(() => service.postUser(username, password))
-    .then(userId => createKingdomService.createKingdom(userId._id, username, kingdomName))
+    .then(userId => createKingdomService.createKingdom(userId._id, username, kingdom))
     .then((data) => { res.json({ userID: data.userId, username, kingdomID: data._id }); })
     .catch((err) => {
       if (err.errors) {

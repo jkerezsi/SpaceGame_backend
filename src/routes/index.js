@@ -8,6 +8,7 @@ const resourceController = require('../controllers/resource.controller');
 
 const router = express.Router();
 
+router.post('/', loginController.login);
 router.post('/register', userController.userRegister);
 router.post('/login', loginController.login);
 router.get('/kingdom/resource', resourceController.getResources);
