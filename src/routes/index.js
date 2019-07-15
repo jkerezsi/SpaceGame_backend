@@ -4,6 +4,7 @@ const loginController = require('../controllers/login-controller/login-controlle
 const kingdomSettings = require('../controllers/settings-controller/settings-controller');
 const resourceController = require('../controllers/resource.controller');
 const authorizationController = require('../controllers/authorization-controller/authorization-controller');
+const kingdomController = require('../controllers/kingdom-controller/kingdom-controller');
 
 const router = express.Router();
 
@@ -12,5 +13,6 @@ router.post('/login', loginController.login);
 router.post('/auth', authorizationController.authorize);
 router.put('/kingdom', kingdomSettings.kingdomNameUpdate);
 router.get('/kingdom/resource', resourceController.getResources);
+router.get('/kingdom/map', kingdomController.getKingdoms);
 
 module.exports = router;

@@ -1,4 +1,3 @@
-
 const { requestResources } = require('../services/Resources/resource.service');
 const { decode } = require('../services/decoder');
 
