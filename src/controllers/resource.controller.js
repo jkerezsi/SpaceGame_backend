@@ -1,6 +1,6 @@
 
 const { requestResources } = require('../services/Resources/resource.service');
-const { decode } = require('../services/decoder.js');
+const { decode } = require('../services/decoder');
 
 const getResources = (req, res) => {
   decode(req.headers.token)

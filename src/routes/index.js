@@ -13,5 +13,4 @@ router.post('/auth', authorizationController.authorize);
 router.put('/kingdom', kingdomSettings.kingdomNameUpdate);
 router.get('/kingdom/resource', resourceController.getResources);
 
-
 module.exports = router;

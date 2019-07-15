@@ -1,5 +1,5 @@
 const { checkTokenPresence } = require('../../services/authorization-services/authorization-services');
-const { decode } = require('../../services/decoder2');
+const { decode } = require('../../services/decoder');
 const { requestKingdomId } = require('../../services/authorization-services/id-service');
 const { checkUserId } = require('../../services/authorization-services/token-service');
 
