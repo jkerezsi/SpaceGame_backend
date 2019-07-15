@@ -13,6 +13,7 @@ router.post('/login', loginController.login);
 router.post('/auth', authorizationController.authorize);
 router.put('/kingdom', kingdomSettings.kingdomNameUpdate);
 router.get('/kingdom/resource', resourceController.getResources);
-router.get('/kingdom/map', kingdomController.getKingdoms);
+router.get('/kingdom/map', kingdomController.getAllKingdoms);
+router.post('/register/map', kingdomController.saveLocationAndGetKingdom);
 
 module.exports = router;
