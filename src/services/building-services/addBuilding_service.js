@@ -3,8 +3,8 @@ const Buildings = require('../../models/building.model');
 const createBuilding = (buildingType, whichKingdom) => new Promise((resolve, reject) => {
   const building = new Buildings({
     type: buildingType,
-    started_at: (new Date().getTime() / 10),
-    finished_at: (new Date().getTime() / 10) + 60,
+    started_at: (new Date().getTime() / 1000),
+    finished_at: (new Date().getTime() / 1000) + 60,
   });
 
   whichKingdom.buildings.push(building);

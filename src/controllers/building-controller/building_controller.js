@@ -7,6 +7,7 @@ const { payingForBuilding } = require('../../services/building-services/payForBu
 
 const addBuilding = (req, res) => {
   checkType(req.body.type, req.body.token)
+    // console.log(req.headers)
     .then(() => decode(req.body.token))
     .then(userId => checkMoney(userId))
     .then(data => requestSettingsKingdomResources(data.userId))
