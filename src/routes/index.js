@@ -3,6 +3,7 @@ const userController = require('../controllers/user.controller');
 const loginController = require('../controllers/login-controller/login-controller');
 const kingdomSettings = require('../controllers/settings-controller/settings-controller');
 const resourceController = require('../controllers/resource.controller');
+const getOneBuildingController = require('../controllers/getOneBuilding.controller');
 // const resourceUpdaterController = require('../controllers/resourceUpdater.controller');
 
 
@@ -13,5 +14,6 @@ router.post('/register', userController.userRegister);
 router.post('/login', loginController.login);
 router.get('/kingdom/resource', resourceController.getResources);
 router.put('/kingdom', kingdomSettings.kingdomNameUpdate);
+router.get('/kingdom/buildings/', getOneBuildingController.getOneBuildingControll);
 
 module.exports = router;
