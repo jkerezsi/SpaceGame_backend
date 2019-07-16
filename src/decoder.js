@@ -7,7 +7,6 @@ const decode = token => new Promise((resolve, reject) => {
   } else {
     const decoded = jwt.decode(token);
     resolve(decoded);
-    console.log(decoded)
   }
 });
 
