@@ -25,12 +25,12 @@ const Troops = mongoose.Schema({
   },
   started_at: {
     type: Number,
-    required: false,
+    required: true,
     default: new Date(),
   },
   finished_at: {
     type: Number,
-    required: false,
+    required: true,
     default: new Date(),
   },
 })
