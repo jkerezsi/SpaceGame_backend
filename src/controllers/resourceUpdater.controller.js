@@ -3,7 +3,9 @@ const { decode } = require('../services/decoder.js');
 const { resourcesUpdater } = require('../services/Resources/resourceUpdater.service');
 
 const resourceUpdate = (req, res, next) => {
-  decode(req.body.token)
+  const { token } = req.headers;
+
+  decode(token)
     .then(userId => requestResourcesWithKdId(userId))
     .then(kingdomInfo => resourcesUpdater(kingdomInfo))
     .catch((err) => {

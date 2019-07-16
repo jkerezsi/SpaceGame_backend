@@ -1,5 +1,5 @@
 const { checkSettingsField } = require('../../services/settings-service/settings-service');
-const { decode } = require('../../decoder');
+const { decode } = require('../../services/decoder');
 const { requestAndUpdateSettingsResources } = require('../../services/settings-service/settings-kingdomResource');
 const { requestSettingsKingdomResources } = require('../../services/settings-service/settings-requestResource');
 
