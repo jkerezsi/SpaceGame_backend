@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Resources = require('./resources.model').schema;
+const Buildings = require('./building.model').schema;
 
 const { Schema } = mongoose;
 
@@ -18,6 +19,7 @@ const Kingdom = new Schema({
     required: true,
     default: { status: 'unassigned' },
   },
+  buildings: [Buildings],
 });
 
 

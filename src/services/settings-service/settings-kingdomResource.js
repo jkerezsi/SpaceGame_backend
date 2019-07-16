@@ -7,6 +7,7 @@ const requestAndUpdateSettingsResources = (newKingdomName, userId) => new Promis
       reject(err);
     } else {
       resolve(data);
+      console.log(data);
     }
   });
 });
