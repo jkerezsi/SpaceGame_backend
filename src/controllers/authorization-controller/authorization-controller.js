@@ -4,8 +4,8 @@ const { requestKingdomId } = require('../../services/authorization-services/id-s
 const { checkUserId } = require('../../services/authorization-services/token-service');
 
 const authorize = (req, res) => {
-  checkTokenPresence(req.body)
-    .then(() => decode(req.body.token))
+  checkTokenPresence(req.headers)
+    .then(() => decode(req.headers.token))
     .then(userId => checkUserId(userId))
     .then(userId => requestKingdomId(userId))
     .then((data) => { res.json({ userId: data.userId, kingdomId: data._id }); })

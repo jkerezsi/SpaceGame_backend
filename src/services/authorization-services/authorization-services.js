@@ -1,15 +1,6 @@
-/* eslint-disable no-prototype-builtins */
-/* eslint-disable no-restricted-syntax */
 
-const isEmpty = (obj) => {
-  for (const key in obj) {
-    if (obj.hasOwnProperty(key)) { return false; }
-  }
-  return true;
-};
-
-const checkTokenPresence = request => new Promise((resolve, reject) => {
-  if (isEmpty(request)) {
+const checkTokenPresence = headers => new Promise((resolve, reject) => {
+  if (headers.token === '' || headers.token === undefined) {
     reject(new Error('No token provided.'));
   } else {
     resolve();
