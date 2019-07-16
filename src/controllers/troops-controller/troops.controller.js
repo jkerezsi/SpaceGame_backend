@@ -11,7 +11,7 @@ const getTroops = (req, res) => {
     .catch((err) => {
       res.status(400).json(err.message);
     });
-}
+};
 
 module.exports = {
   getTroops,

@@ -33,7 +33,7 @@ const Troops = mongoose.Schema({
     required: true,
     default: new Date(),
   },
-})
+});
 
 module.exports = mongoose.model('Troops', Troops);
 
