@@ -5,14 +5,23 @@ const kingdomSettings = require('../controllers/settings-controller/settings-con
 const resourceController = require('../controllers/resource.controller');
 const authorizationController = require('../controllers/authorization-controller/authorization-controller');
 const kingdomController = require('../controllers/kingdom-controller/kingdom-controller');
+const getAllBuildingsController = require('../controllers/getAllBuildings.controller');
+
+const addBuildingController = require('../controllers/building-controller/building_controller');
 
 const router = express.Router();
 
+router.post('/', loginController.login);
 router.post('/register', userController.userRegister);
 router.post('/login', loginController.login);
 router.post('/auth', authorizationController.authorize);
 router.put('/kingdom', kingdomSettings.kingdomNameUpdate);
 router.get('/kingdom/resource', resourceController.getResources);
 router.get('/kingdom/map', kingdomController.getKingdoms);
+router.get('/kingdom/resource', resourceController.getResources);
+router.put('/kingdom', kingdomSettings.kingdomNameUpdate);
+router.get('/kingdom/buildings', getAllBuildingsController.getAllBuildings);
+
+router.post('/kingdom/buildings', addBuildingController.addBuilding);
 
 module.exports = router;

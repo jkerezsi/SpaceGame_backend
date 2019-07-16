@@ -5,13 +5,14 @@ const { requestSettingsKingdomResources } = require('../../services/settings-ser
 
 
 const kingdomNameUpdate = (req, res) => {
-  checkSettingsField(req.body.name, req.body.token)
+  console.log(req.body);
+  checkSettingsField(req.body.newKingdomName, req.body.token)
     .then(() => decode(req.body.token))
-    .then(userId => requestAndUpdateSettingsResources(req.body.name, userId))
+    .then(userId => requestAndUpdateSettingsResources(req.body.newKingdomName, userId))
     .then(data => requestSettingsKingdomResources(data.userId))
     .then(data => res.status(200).json(data))
     .catch((err) => {
-      res.status(400).json(err.message);
+      res.json(err);
     });
 };
 

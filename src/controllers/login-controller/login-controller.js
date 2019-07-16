@@ -7,7 +7,7 @@ const login = (req, res) => {
     .then(data => res.status(200).json(data))
     .catch((err) => {
       if (err.message === 'Username or password is incorrect.') {
-        res.status(401).json(err.message);
+        res.status(401).json({ status: 'error', message: err.message });
       } else {
         res.status(400).json(err.message);
       }
