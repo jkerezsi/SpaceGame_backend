@@ -2,7 +2,7 @@ const { requestAllBuildings } = require('../services/getAllBuildings.service');
 const { filterOutOneBuiding } = require('../services/getOneBulinding/filterOutOneBuiding.service');
 const { decode } = require('../services/decoder.js');
 
-const getOneBuildingControll = (req, res) => {
+const getOneBuildingController = (req, res) => {
   const { token } = req.headers;
   const { buildingId } = req.params;
 
@@ -14,4 +14,4 @@ const getOneBuildingControll = (req, res) => {
       res.status(400).json(err);
     });
 };
-module.exports = { getOneBuildingControll };
+module.exports = { getOneBuildingController };

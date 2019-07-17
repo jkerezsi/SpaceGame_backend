@@ -1,5 +1,5 @@
 const { checkType } = require('../../services/building-services/checkBuildingType_service');
-const { decode } = require('../../decoder');
+const { decode } = require('../../services/decoder');
 const { checkMoney } = require('../../services/building-services/checkMoney_service');
 const { createBuilding } = require('../../services/building-services/addBuilding_service');
 const { requestSettingsKingdomResources } = require('../../services/settings-service/settings-requestResource');
