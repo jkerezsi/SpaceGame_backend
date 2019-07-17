@@ -6,8 +6,8 @@ const resourceController = require('../controllers/resource.controller');
 const authorizationController = require('../controllers/authorization-controller/authorization-controller');
 const kingdomController = require('../controllers/kingdom-controller/kingdom-controller');
 const getAllBuildingsController = require('../controllers/getAllBuildings.controller');
-
 const addBuildingController = require('../controllers/building-controller/building_controller');
+const getTroopsController = require('../controllers/troops-controller/troops.controller');
 
 const router = express.Router();
 
@@ -23,5 +23,8 @@ router.get('/kingdom/resource', resourceController.getResources);
 router.put('/kingdom', kingdomSettings.kingdomNameUpdate);
 router.get('/kingdom/buildings', getAllBuildingsController.getAllBuildings);
 router.post('/kingdom/buildings', addBuildingController.addBuilding);
+
+router.get('/kingdom/troops', getTroopsController.getTroops);
+
 
 module.exports = router;
