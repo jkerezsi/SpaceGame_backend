@@ -9,10 +9,11 @@ const createKingdom = (userId, username, kingdomName) => new Promise((resolve, r
     kingdomName = `${username}'s kingdom`;
   }
   const townhall = new Buildings({ type: 'townhall' });
+  const academy = new Buildings({ type: 'academy' });
   const goldResources = new Resources({ type: 'Gold' });
   const foodResources = new Resources({ type: 'Food' });
   const newKingdom = new Kingdom({ kingdomName, userId });
-  newKingdom.buildings.push(townhall);
+  newKingdom.buildings.push(townhall, academy);
   newKingdom.resources.push(foodResources, goldResources);
   newKingdom.save((err, data) => {
     if (err) {
