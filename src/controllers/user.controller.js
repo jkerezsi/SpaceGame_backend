@@ -15,7 +15,11 @@ const userRegister = (req, res) => {
     .then(() => passwordMinimumService.passwordMinimumChecker(password))
     .then(() => service.postUser(username, password))
     .then(userId => createKingdomService.createKingdom(userId._id, username, kingdom))
-    .then((data) => { res.json({ userID: data.userId, username, kingdomID: data._id }); })
+    .then((data) => {
+      res.json({
+        userID: data.userId, username, kingdomID: data.kingdomId, token: data.token,
+      });
+    })
     .catch((err) => {
       if (err.errors) {
         res.status(409).json({ status: 'error', message: err.errors.username.message });

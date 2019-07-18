@@ -16,9 +16,9 @@ const Kingdom = new Schema({
   },
   resources: [Resources],
   location: {
-    type: Object,
+    type: Array,
     required: true,
-    default: { status: 'unassigned' },
+    default: ['unassigned'],
   },
   buildings: [Buildings],
   troops: [Troops],

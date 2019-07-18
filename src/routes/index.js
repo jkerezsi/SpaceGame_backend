@@ -18,6 +18,7 @@ router.post('/auth', authorizationController.authorize);
 router.put('/kingdom', kingdomSettings.kingdomNameUpdate);
 router.get('/kingdom/resource', resourceController.getResources);
 router.get('/kingdom/map', kingdomController.getAllKingdoms);
+router.post('/kingdom/map/add', kingdomController.addLocationAndGetKingdom);
 router.post('/register/map', kingdomController.saveLocationAndGetKingdom);
 router.get('/kingdom/resource', resourceController.getResources);
 router.put('/kingdom', kingdomSettings.kingdomNameUpdate);

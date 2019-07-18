@@ -1,5 +1,6 @@
 const Kingdom = require('../../models/kingdom.model');
 const Resources = require('../../models/resources.model');
+const { registerToken } = require('../../models/register-token');
 
 const createKingdom = (userId, username, kingdomName) => new Promise((resolve, reject) => {
   if (kingdomName === undefined) {
@@ -14,7 +15,7 @@ const createKingdom = (userId, username, kingdomName) => new Promise((resolve, r
     if (err) {
       reject(err);
     } else {
-      resolve(data);
+      resolve(registerToken(data.userId, data._id.toString()));
     }
   });
 });
