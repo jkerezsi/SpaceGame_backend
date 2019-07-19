@@ -1,5 +1,5 @@
 const { requestResourcesWithKdId } = require('../services/Resources/requestResourcesWithKdId.service');
-const { decode } = require('../services/decoder.js');
+const { decode } = require('../services/decoder');
 const { resourcesUpdater } = require('../services/Resources/resourceUpdater.service');
 
 const resourceUpdate = (req, res, next) => {
