@@ -8,6 +8,7 @@ const kingdomController = require('../controllers/kingdom-controller/kingdom-con
 const getAllBuildingsController = require('../controllers/getAllBuildings.controller');
 const addBuildingController = require('../controllers/building-controller/building_controller');
 const getTroopsController = require('../controllers/troops-controller/troops.controller');
+const upgradeTroopsController = require('../controllers/upgrade-troops-controller/upgrade.troops.controller');
 
 const router = express.Router();
 
@@ -23,6 +24,7 @@ router.get('/kingdom/resource', resourceController.getResources);
 router.put('/kingdom', kingdomSettings.kingdomNameUpdate);
 router.get('/kingdom/buildings', getAllBuildingsController.getAllBuildings);
 router.post('/kingdom/buildings', addBuildingController.addBuilding);
+router.put('/kingdom/troops', upgradeTroopsController.upgradeTroops);
 
 router.get('/kingdom/troops', getTroopsController.getTroops);
 
