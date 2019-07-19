@@ -6,6 +6,7 @@ const decode = token => new Promise((resolve, reject) => {
     reject(new Error('No token provided'));
   } else {
     const decoded = jwt.decode(token);
+    console.log(decoded)
     resolve(decoded);
   }
 });

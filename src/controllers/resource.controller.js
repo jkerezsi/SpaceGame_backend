@@ -2,7 +2,6 @@ const { requestResources } = require('../services/Resources/resource.service');
 const { decode } = require('../services/decoder');
 
 const getResources = (req, res) => {
-  console.log(req.headers.token)
   decode(req.headers.token)
     .then(userId => requestResources(userId))
     .then(data => res.status(200).json(data))
