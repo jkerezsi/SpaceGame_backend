@@ -14,7 +14,7 @@ const userRegister = (req, res) => {
     .then(() => isPasswordGivenService.passwordLengthChecker(password))
     .then(() => passwordMinimumService.passwordMinimumChecker(password))
     .then(() => service.postUser(username, password))
-    .then(userId => createKingdomService.createKingdom(userId._id, username, kingdom)
+    .then(userId => createKingdomService.createKingdom(userId._id, username, kingdom))
     .then((data) => {
       res.json({
         userID: data.userId, username, kingdomID: data.kingdomId, token: data.token,
