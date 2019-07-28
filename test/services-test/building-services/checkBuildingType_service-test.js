@@ -1,37 +1,39 @@
-const test = require('tape');
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
+
+chai.should();
+chai.use(chaiAsPromised);
 const { checkType } = require('../../../src/services/building-services/checkBuildingType_service');
 
-test('check if buildingtype is correct', (t) => {
-  checkType('', '98q769832764')
-    .catch((error) => {
-      t.equals(error.message, ('Type is required.'));
-    });
 
-  checkType('mine', '')
-    .catch((error) => {
-      t.equals(error.message, ('Token is required.'));
-    });
+describe('checkType with should', () => {
+  it('empty type', () =>
+    checkType('', 'asdasd')
+      .should.be.rejectedWith('Type is required.'));
 
-  checkType('blubli', '87619782639187')
-    .catch((error) => {
-      t.equals(error.message, ('Wrong type.'));
-    });
+  it('empty token', () =>
+    checkType('farm', '')
+      .should.be.rejectedWith('Token is required.'));
+
+  it('undefined token', () =>
+    checkType('farm', undefined)
+      .should.be.rejectedWith('Token is required.'));
+
+  it('undefined type', () =>
+    checkType(undefined, 'asd')
+      .should.be.rejectedWith('Type is required.'));
 
 
-  t.end();
+  it('wrong type', () =>
+    checkType('alkhsdkj', 'éoiahsdé')
+      .should.be.rejectedWith('Wrong type.'));
+
+  it('correct type (farm) and token', () =>
+    checkType('farm', 'éoiahsdé')
+      .should.become(undefined));
+
+  it('correct type (mine) and token', () =>
+    checkType('mine', 'éoiahsdé')
+      .should.become(undefined));
 });
 
-
-test('check if token exists', (t) => {
-  checkType('mine', '123')
-    .then((i) => {
-      t.equals(i, undefined);
-    });
-
-  checkType('farm', '123')
-    .then((i) => {
-      t.equals(i, undefined);
-    });
-
-  t.end();
-});

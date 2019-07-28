@@ -1,37 +1,31 @@
-const test = require('tape');
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
+
+chai.should();
+chai.use(chaiAsPromised);
 const { checkCountryCodePresence } = require('../../../src/services/kingdom-service/country-code-service');
 
-test('check token errors', (t) => {
-  checkCountryCodePresence({})
-    .catch((error) => {
-      t.equals(error.message, ('Country code is required.'));
-    });
+
+describe('checkCountryCodePresence with should', () => {
+  it('empty request', () =>
+    checkCountryCodePresence({})
+      .should.be.rejectedWith('Country code is required.'));
+
+  it('empty country code', () =>
+    checkCountryCodePresence({ body: { country_code: '' } })
+      .should.be.rejectedWith('Country code is required.'));
 
 
-  const emptyToken = {
-    body: {
-      country_code: '',
-    },
-  };
-  checkCountryCodePresence(emptyToken)
-    .catch((error) => {
-      t.equals(error.message, ('Country code is required.'));
-    });
-
-  t.end();
-});
+  it('correct request', () =>
+    checkCountryCodePresence({ body: { country_code: 'asd' } })
+      .should.become(undefined));
 
 
-test('check if token exists', (t) => {
-  const emptyToken = {
-    body: {
-      country_code: '123',
-    },
-  };
-  checkCountryCodePresence(emptyToken)
-    .then((i) => {
-      t.equals(i, undefined);
-    });
 
-  t.end();
+  // ha van bármilyen kisnyúl, resolved lesz
+
+  it('SHOULD NOT PASS BUT IT DOES', () =>
+    checkCountryCodePresence({ body: { kisnyúl: 'asd' } })
+      .should.become(undefined));
+
 });
