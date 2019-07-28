@@ -36,7 +36,7 @@ after(async () => {
 let newUser;
 let newKingdom;
 
-describe('...', () => {
+describe('adding user and kingdom', () => {
   it('successfully added new user', async () => {
     newUser = await postUser('Nora', 'password');
     const usercount = await User.countDocuments();
