@@ -15,17 +15,12 @@ describe('checkCountryCodePresence with should', () => {
     checkCountryCodePresence({ body: { country_code: '' } })
       .should.be.rejectedWith('Country code is required.'));
 
+  it('body is not empty, but there is no cc', () =>
+    checkCountryCodePresence({ body: { kisnyúl: 'asd' } })
+      .should.be.rejectedWith('Country code is required.'));
 
   it('correct request', () =>
     checkCountryCodePresence({ body: { country_code: 'asd' } })
-      .should.become(undefined));
-
-
-
-  // ha van bármilyen kisnyúl, resolved lesz
-
-  it('SHOULD NOT PASS BUT IT DOES', () =>
-    checkCountryCodePresence({ body: { kisnyúl: 'asd' } })
       .should.become(undefined));
 
 });
