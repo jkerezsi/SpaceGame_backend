@@ -1,4 +1,3 @@
-const Kingdom = require('../../models/kingdom.model');
 
 const checkAcademyLevel = (kingdom, troopID) => new Promise((resolve, reject) => {
   if (kingdom.academy.level <= kingdom.troops[troopID].level) {

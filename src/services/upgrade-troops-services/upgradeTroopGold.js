@@ -1,3 +1,4 @@
+const Kingdom = require('../../models/kingdom.model');
 
 const updateGoldAmount = (kingdom, troopID) => new Promise((resolve, reject) => {
   const newGoldAmount = kingdom.resources[1].amount - 10;
