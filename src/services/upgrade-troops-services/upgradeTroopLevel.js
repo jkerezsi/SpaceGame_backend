@@ -7,11 +7,11 @@ const upgradeTroopLevel = (kingdom, troopID) => new Promise((resolve, reject) =>
     $set: {
       'troops.$.level': newLevel,
     },
-  }, (err, data) => {
+  }, (err) => {
     if (err) {
       reject(err);
     } else {
-      resolve(data);
+      resolve(kingdom);
     }
   });
 });

@@ -6,11 +6,13 @@ const updateGoldAmount = (kingdom, troopID) => new Promise((resolve, reject) => 
     $set: {
       'resources[1].amount': newGoldAmount,
     },
-  }, (err, data) => {
+  }, (err) => {
     if (err) {
       reject(err);
+      console.log('gold not ok');
     } else {
-      resolve(data);
+      resolve(kingdom);
+      console.log('gold ok');
     }
   });
 });
