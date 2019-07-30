@@ -10,14 +10,14 @@ const { requestUserKingdom } = require('../../services/kingdom-service/kingdom-s
 const upgradeTroops = (req, res) => {
   console.log(req.body);
   console.log(req.headers.token);
-  checkUpgradeFields(req.body.troopID);
+  checkUpgradeFields(req.params.troopId);
   checkToken(req.headers.token)
     .then(() => decode(req.headers.token))
     .then(userId => requestUserKingdom(userId))
-    .then(kingdom => checkAcademyLevel(kingdom, req.body.troopID))
-    .then(kingdom => upgradeTroopLevel(kingdom, req.body.troopID))
-    .then(kingdom => updateGoldAmount(kingdom, req.body.troopID))
-    .then(data => res.status(200).json({ troops: data.troops }))
+    .then(kingdom => checkAcademyLevel(kingdom, req.body.level))
+    .then(kingdom => updateGoldAmount(kingdom, req.params.troopId))
+    // .then(level => upgradeTroopLevel(level, req.params.troopId))
+    .then(data => res.status(200).json(data))
     .catch((err) => {
       res.status(400).json(err.message);
     });
