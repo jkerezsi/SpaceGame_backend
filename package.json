@@ -32,7 +32,6 @@
     "eslint-plugin-react": "^7.9.1",
     "eslint-restricted-globals": "^0.1.1",
     "mocha": "^5.2.0",
-    "mongodb-memory-server": "^5.1.9",
     "nodemon": "^1.19.1",
     "supertest": "^3.4.2",
     "tape": "^4.9.2"
