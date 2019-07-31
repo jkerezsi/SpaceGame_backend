@@ -5,7 +5,7 @@ mongoose.set('useFindAndModify', false);
 const Buildings = mongoose.Schema({
   type: {
     type: String,
-    enum: ['farm', 'mine', 'townhall'],
+    enum: ['farm', 'mine', 'townhall, academy'],
     required: true,
   },
   level: {
