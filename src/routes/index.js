@@ -25,7 +25,6 @@ router.put('/kingdom', kingdomSettings.kingdomNameUpdate);
 router.get('/kingdom/buildings', getAllBuildingsController.getAllBuildings);
 router.post('/kingdom/buildings', addBuildingController.addBuilding);
 router.put('/kingdom/troops/:troopId', upgradeTroopsController.upgradeTroops);
-
 router.get('/kingdom/troops', getTroopsController.getTroops);
 
 
