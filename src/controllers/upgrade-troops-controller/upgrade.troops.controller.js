@@ -16,7 +16,7 @@ const upgradeTroops = (req, res) => {
     .then(userId => requestUserKingdom(userId))
     .then(kingdom => checkAcademyLevel(kingdom, req.body.level))
     .then(kingdom => updateGoldAmount(kingdom, req.params.troopId))
-    // .then(level => upgradeTroopLevel(level, req.params.troopId))
+    .then(() => upgradeTroopLevel(req.body.level, req.params.troopId))
     .then(data => res.status(200).json(data))
     .catch((err) => {
       res.status(400).json(err.message);

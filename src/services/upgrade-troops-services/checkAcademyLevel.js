@@ -6,7 +6,6 @@ const checkAcademyLevel = (kingdom, troopLevel) => new Promise((resolve, reject)
     reject(new Error('You cannot afford to upgrade this troop!'));
   } else {
     resolve(kingdom);
-    console.log('academy ok')
   }
 });
 

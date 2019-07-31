@@ -4,6 +4,7 @@ const checkUpgradeFields = troopID => new Promise((resolve, reject) => {
     reject(new Error('TroopID is missing.'));
   } else {
     resolve();
+    console.log('checkfield OK');
   }
 });
 
