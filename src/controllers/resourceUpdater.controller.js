@@ -1,9 +1,11 @@
 const { requestResourcesWithKdId } = require('../services/Resources/requestResourcesWithKdId.service');
-const { decode } = require('../services/decoder.js');
+const { decode } = require('../services/decoder');
 const { resourcesUpdater } = require('../services/Resources/resourceUpdater.service');
 
 const resourceUpdate = (req, res, next) => {
-  decode(req.body.token)
+  const { token } = req.headers;
+
+  decode(token)
     .then(userId => requestResourcesWithKdId(userId))
     .then(kingdomInfo => resourcesUpdater(kingdomInfo))
     .catch((err) => {
