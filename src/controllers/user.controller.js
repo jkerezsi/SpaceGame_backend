@@ -8,7 +8,6 @@ const createKingdomService = require('../services/register/kingdom.service');
 const userRegister = (req, res) => {
   const { username, password } = req.body;
   const kingdom = req.body.kingdom || `${username}'s kingdom`;
-
   loginLengthCheckerService.passwordUsernameLengthChecker(username, password)
     .then(() => isUsernameGivenService.usernameLengthChecker(username))
     .then(() => isPasswordGivenService.passwordLengthChecker(password))
