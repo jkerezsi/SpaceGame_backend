@@ -30,6 +30,7 @@ router.get('/kingdom/buildings', getAllBuildingsController.getAllBuildings);
 router.put('/kingdom/troops/:troopId', upgradeTroopsController.upgradeTroops);
 router.post('/kingdom/buildings', resourceUpdaterController.resourceUpdate, addBuildingController.addBuilding);
 router.get('/kingdom/troops', getTroopsController.getTroops);
+router.post('/kingdom/troops', getTroopsController.createTroops);
 
 
 module.exports = router;
