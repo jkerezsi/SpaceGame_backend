@@ -22,5 +22,4 @@ describe('checkCountryCodePresence with should', () => {
   it('correct request', () =>
     checkCountryCodePresence({ body: { country_code: 'asd' } })
       .should.become(undefined));
-
 });
