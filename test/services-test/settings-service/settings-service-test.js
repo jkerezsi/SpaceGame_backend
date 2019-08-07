@@ -5,7 +5,6 @@ chai.should();
 chai.use(chaiAsPromised);
 const { checkSettingsField } = require('../../../src/services/settings-service/settings-service');
 
-
 describe('checkSettingsField with should', () => {
   it('empty name, given token', () =>
     checkSettingsField('', 'asd')
@@ -34,6 +33,4 @@ describe('checkSettingsField with should', () => {
   it('given name and token', () =>
     checkSettingsField('asd', 'asd')
       .should.become(undefined));
-
 });
-

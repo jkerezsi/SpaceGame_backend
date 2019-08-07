@@ -35,6 +35,4 @@ describe('login - checkFormFields with should', () => {
   it('given username and password', () =>
     checkFormFields('asd', 'asd')
       .should.become(undefined));
-
 });
-
