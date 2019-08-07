@@ -12,6 +12,7 @@ const resourceUpdaterController = require('../controllers/resourceUpdater.contro
 const getTroopsController = require('../controllers/troops-controller/troops.controller');
 const upgradeTroopsController = require('../controllers/upgrade-troops-controller/upgrade.troops.controller');
 const buildingLeaderboardContorller = require('../controllers/buildingLeaderboard.controller');
+const troopsLeaderboardContorller = require('../controllers/troopsLeaderboard-controller');
 
 const router = express.Router();
 
@@ -33,6 +34,7 @@ router.post('/kingdom/buildings', resourceUpdaterController.resourceUpdate, addB
 router.get('/kingdom/troops', getTroopsController.getTroops);
 router.post('/kingdom/troops', getTroopsController.createTroops);
 router.get('/leaderboard/buildings', buildingLeaderboardContorller.getBuidingLeaderboard);
+router.get('/leaderboard/troops', troopsLeaderboardContorller.getTroopsLeaderboard);
 
 
 module.exports = router;
