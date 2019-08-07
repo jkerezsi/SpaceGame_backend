@@ -2,7 +2,7 @@
 const Kingdom = require('../../models/kingdom.model');
 
 const requestKingdoms = () => new Promise((resolve, reject) => {
-  Kingdom.find({}, '-userId -resources -__v -buildings', (err, kingdoms) => {
+  Kingdom.find({}, '-userId -resources -__v -buildings -troops', (err, kingdoms) => {
     if (err) {
       reject(err);
     } else {
@@ -12,7 +12,17 @@ const requestKingdoms = () => new Promise((resolve, reject) => {
 });
 
 const saveLocationToKingdom = (userId, countryCode) => new Promise((resolve, reject) => {
-  Kingdom.findOneAndUpdate({ userId }, { location: { country_code: countryCode } }, (err, kingdom) => {
+  Kingdom.findOneAndUpdate({ userId }, { location: [countryCode] }, (err, kingdom) => {
+    if (err) {
+      reject(err);
+    } else {
+      resolve(userId);
+    }
+  });
+});
+
+const addLocationToKingdom = (userId, countryCode) => new Promise((resolve, reject) => {
+  Kingdom.findOneAndUpdate({ userId }, { $push: { location: countryCode } }, (err, kingdom) => {
     if (err) {
       reject(err);
     } else {
@@ -35,4 +45,5 @@ module.exports = {
   requestKingdoms,
   saveLocationToKingdom,
   requestUserKingdom,
+  addLocationToKingdom,
 };
