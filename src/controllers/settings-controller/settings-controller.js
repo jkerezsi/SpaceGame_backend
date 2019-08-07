@@ -5,7 +5,6 @@ const { requestSettingsKingdomResources } = require('../../services/settings-ser
 
 
 const kingdomNameUpdate = (req, res) => {
-  console.log(req.body);
   checkSettingsField(req.body.newKingdomName, req.body.token)
     .then(() => decode(req.body.token))
     .then(userId => requestAndUpdateSettingsResources(req.body.newKingdomName, userId))
