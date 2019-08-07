@@ -19,11 +19,11 @@ const buidingsLeaderboard = () => new Promise((resolve, reject) => {
   });
 });
 
-const sortByNuberOfBuildings = kingdomBuildings => new Promise((resolve) => {
+const sortByNumberOfBuildings = kingdomBuildings => new Promise((resolve) => {
   resolve(kingdomBuildings.sort((a, b) => (b.numberOfBuildings) - (a.numberOfBuildings)));
 });
 
 module.exports = {
   buidingsLeaderboard,
-  sortByNuberOfBuildings,
+  sortByNumberOfBuildings,
 };
