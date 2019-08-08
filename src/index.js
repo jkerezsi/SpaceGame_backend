@@ -35,11 +35,7 @@ const connectToDatabase = async () => {
   }
   const database = mongoose.connection;
   database.once('open', () => {
-    console.log(
-      `${
-        process.env.NODE_ENV === 'test' ? 'mock' : ''
-      } db successfully connected!`,
-    );
+    console.log(`${process.env.NODE_ENV === 'test' ? 'mock' : ''} db successfully connected!`);
   });
   return database;
 };
