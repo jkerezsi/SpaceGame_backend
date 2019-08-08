@@ -8,7 +8,7 @@ chai.use(chaiAsPromised);
 
 const { expect } = chai;
 
-describe('API Tests', () => {
+describe('API Tests Register without mongo', () => {
   it('/register access', (done) => {
     request(app.app)
       .post('/register')
@@ -52,72 +52,37 @@ describe('API Tests', () => {
         done(err);
       });
   });
+});
 
-  const data = {
-    username: 'whatwhat',
-    password: 'morethan8',
-  };
-  it('/register success', (done) => {
-    request(app.app)
-      .post('/register')
-      .send({ data })
-      .set('Content-Type', 'application/json')
-      // .then((res) => {
-      //   expect(res.status).to.equal(200);
-      //   expect(res.body.username).to.equal(data.username);
-      //   expect(res.body.userID).not.to.be.null;
-      //   expect(res.body.kingdomID).not.to.be.null;
-      // });
-    // .expect('Content-Type', /json/)
-    // // .expect(200)
-    // // console.log(res.request._data)
-      .end((err, res) => {
-        console.log(res);
-        // expect(res.status).to.equal(200);
-        done(err);
-      });
+
+describe('API Tests Register with mongo', () => {
+  beforeEach((done) => {
+    app.connectToDatabase();
+    done();
+  });
+  afterEach((done) => {
+    app.disconnectFromDatabase();
+    done();
   });
 
 
-  // it('/login happenes', (done) => {
-  //   request(app.app)
-  //     .post('/login')
-  //     .set('Content-type', 'application/json')
-  //     .send({ username: 'muhahahah', password: '' })
-  //     .end((err, res) => {
-  //       // console.log(res.body)
-  //       expect(res.status).to.equal(400);
-  //       expect(res.text).to.equal('"Password is required."');
-  //       expect(res.body).to.equal('Password is required.');
-  //       done(err);
-  //     });
-  // });
+  it('/register success', (done) => {
+    const data = { username: 'whatwhat', password: 'morethan8' };
+    request(app.app)
+      .post('/register')
+      .send(data)
+      .set('Content-Type', 'application/json')
+      .end((err, res) => {
+        if (err) {
+          done(err);
+        } else {
+          expect(res.status).to.equal(200);
+          expect(res.body.username).to.equal(data.username);
+          expect(res.body.userID).not.to.be.null;
+          expect(res.body.kingdomID).not.to.be.null;
+          expect(res.body.token).not.to.be.null;
+          done();
+        }
+      });
+  });
 });
-
-// const app = require('./index');
-// const request = require('supertest');
-// const test = require('tape');
-
-// test('POST /login', (t) => {
-//   const data = {
-//     username: 'jani',
-//     password: '12345678',
-//   };
-//   request(app.app)
-//     .post('/login')
-//     .send(data)
-//     .set('Accept', 'application/json')
-//     .expect('Content-Type', /json/)
-//     .expect(200)
-//     .end((err, res) => {
-//       const result = {
-//         status: 'ok',
-//         token: 'eyJhbGciOiJIUzI1NiJ9.NWQzZmY4MjgwYzk4M2I0MWY0NTM4YWY0.J-jTPHWw5mS05R_xjaz7rq35xmbdzks_qwoTUtmsnKE',
-//       };
-
-//       t.error(err, 'err?');
-//       t.same(res.status, result.status, 'what');
-//       app.close();
-//       t.end();
-//     });
-// });

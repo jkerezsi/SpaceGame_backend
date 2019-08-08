@@ -7,7 +7,6 @@ const createKingdomService = require('../services/register/kingdom.service');
 
 const userRegister = (req, res) => {
   const { username, password } = req.body;
-  console.log(req.body)
   const kingdom = req.body.kingdom || `${username}'s kingdom`;
   loginLengthCheckerService.passwordUsernameLengthChecker(username, password)
     .then(() => isUsernameGivenService.usernameLengthChecker(username))
@@ -22,7 +21,6 @@ const userRegister = (req, res) => {
     })
     .catch((err) => {
       if (err.errors) {
-        console.log(err.errors)
         res.status(409).json({ status: 'error', message: err.errors.username.message });
       } else {
         res.status(400).json({ status: 'error', message: err.message });
