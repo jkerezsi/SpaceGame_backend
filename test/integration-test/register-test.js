@@ -9,14 +9,11 @@ chai.use(chaiAsPromised);
 const { expect } = chai;
 
 describe('API Tests', () => {
-  it('/register success', (done) => {
+  it('/register access', (done) => {
     request(app.app)
       .post('/register')
-      .send({ username: 'New', password: 'morethan8' })
       .end((err, res) => {
-        console.log(res);
-        
-        expect(res.status).to.equal(200);
+        expect(res.status).not.to.be.null;
         done(err);
       });
   });
@@ -43,6 +40,44 @@ describe('API Tests', () => {
         done(err);
       });
   });
+
+  it('/register without username', (done) => {
+    request(app.app)
+      .post('/register')
+      .send({ username: '', password: 'morethan8' })
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        expect(res.body.status).to.equal('error');
+        expect(res.body.message).to.equal('Username is required.');
+        done(err);
+      });
+  });
+
+  const data = {
+    username: 'whatwhat',
+    password: 'morethan8',
+  };
+  it('/register success', (done) => {
+    request(app.app)
+      .post('/register')
+      .send({ data })
+      .set('Content-Type', 'application/json')
+      // .then((res) => {
+      //   expect(res.status).to.equal(200);
+      //   expect(res.body.username).to.equal(data.username);
+      //   expect(res.body.userID).not.to.be.null;
+      //   expect(res.body.kingdomID).not.to.be.null;
+      // });
+    // .expect('Content-Type', /json/)
+    // // .expect(200)
+    // // console.log(res.request._data)
+      .end((err, res) => {
+        console.log(res);
+        // expect(res.status).to.equal(200);
+        done(err);
+      });
+  });
+
 
   // it('/login happenes', (done) => {
   //   request(app.app)
@@ -86,5 +121,3 @@ describe('API Tests', () => {
 //       t.end();
 //     });
 // });
-
-
