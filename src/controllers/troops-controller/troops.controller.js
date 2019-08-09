@@ -3,11 +3,11 @@ const { checkToken } = require('../../services/troops-services/checkToken_servic
 const { requestSettingsKingdomResources } = require('../../services/settings-service/settings-requestResource');
 const { checkResources, payForTroop, createTroop } = require('../../services/troops-services/troops_service');
 
-
 const getTroops = (req, res) => {
   checkToken(req.headers.token)
     .then(() => decode(req.headers.token))
     .then(userId => requestSettingsKingdomResources(userId))
+    // .then(userId => createTroop(userId))
     .then(data => res.status(200).json({ troops: data.troops }))
     .catch((err) => {
       res.status(400).json(err.message);
