@@ -6,7 +6,7 @@ const getResources = (req, res) => {
     .then(userId => requestResources(userId))
     .then(data => res.status(200).json(data))
     .catch((err) => {
-      res.status(400).json(err);
+      res.status(400).json(err.message);
     });
 };
 module.exports = {
