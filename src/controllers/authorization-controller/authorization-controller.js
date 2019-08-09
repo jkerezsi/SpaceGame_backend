@@ -9,7 +9,7 @@ const authorize = (req, res) => {
     .then(userId => checkUserId(userId))
     .then(userId => requestKingdomId(userId))
     .then((data) => { res.json({ userId: data.userId, kingdomId: data._id }); })
-    .catch(err => res.json(err.message));
+    .catch(err => res.status(400).json(err.message));
 };
 
 module.exports = {

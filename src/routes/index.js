@@ -23,8 +23,6 @@ router.get('/kingdom/resource', resourceController.getResources);
 router.get('/kingdom/map', kingdomController.getAllKingdoms);
 router.post('/register/map', resourceUpdaterController.resourceUpdate, kingdomController.saveLocationAndGetKingdom);
 router.post('/kingdom/map/add', kingdomController.addLocationAndGetKingdom);
-router.get('/kingdom/resource', resourceController.getResources);
-router.put('/kingdom', resourceUpdaterController.resourceUpdate, kingdomSettings.kingdomNameUpdate);
 router.get('/kingdom/buildings/:buildingId', getOneBuildingController.getOneBuildingController);
 router.get('/kingdom/buildings', getAllBuildingsController.getAllBuildings);
 router.put('/kingdom/troops/:troopId', upgradeTroopsController.upgradeTroops);
